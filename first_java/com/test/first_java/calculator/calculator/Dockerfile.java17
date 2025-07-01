@@ -1,0 +1,9 @@
+FROM openjdk:17-jdk
+
+WORKDIR /app
+COPY src /app/src
+
+# Compile the Java files
+RUN javac -d /app/bin src/main/java/calculator/*.java
+
+CMD ["java", "-cp", "/app/bin", "calculator.Calculator"] 
